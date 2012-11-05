@@ -25,9 +25,11 @@ _ReSharper*
 ipch
 *.user
 
+bin
 GeneratedFiles
 Debug
 Release
+*__Win*
 
 # Subversion data folders
 .svn
