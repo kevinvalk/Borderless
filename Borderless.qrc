@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="Borderless">
+    <qresource prefix="/Borderless">
+        <file>icon.png</file>
     </qresource>
 </RCC>

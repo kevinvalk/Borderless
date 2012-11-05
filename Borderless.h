@@ -5,6 +5,9 @@
 #include <QTimer>
 #include <QString>
 #include <QVector>
+#include <QMenu>
+#include <QCloseEvent>
+#include <QSystemTrayIcon>
 #include <QList>
 #include "ui_Main.h"
 #include "typedef.h"
@@ -31,8 +34,14 @@ public slots:
 
 private:
 	Ui::BorderlessClass ui;
+	QMenu *menu;
+	QSystemTrayIcon *tray;
 	QVector<GameInfo*> games;
 	QTimer *timer;
+
+protected:
+	bool event(QEvent *event);
 };
 
+extern QApplication *application;
 #endif // BORDERLESS_H

@@ -6,7 +6,17 @@ Borderless::Borderless(QWidget *parent, Qt::WFlags flags)
 {
 	ui.setupUi(this);
 
-	// Setup
+	// Create the system context menu
+	menu = new QMenu(this);
+	menu->addAction(tr("Show"), this, SLOT(show()));
+	menu->addAction(tr("Close"), application, SLOT(quit()));
+
+	// Create system tray
+	tray = new QSystemTrayIcon(QIcon(":/Borderless/icon.png"));
+	tray->setContextMenu(menu);
+	tray->show();
+	
+	// Create timed loop
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	timer->start(50);
@@ -25,6 +35,32 @@ Borderless::Borderless(QWidget *parent, Qt::WFlags flags)
 Borderless::~Borderless()
 {
 
+}
+
+bool Borderless::event(QEvent *event)
+{
+	
+	switch(event->type())
+	{
+		case QEvent::WindowStateChange:
+			if(isMinimized())
+				QTimer::singleShot(0, this, SLOT(hide()));
+		break;
+		case QEvent::Show:
+			if(isMinimized())
+			{
+				showNormal();
+				event->ignore();
+				return false;
+			}
+		break;
+		case QEvent::Close:
+			hide();
+			event->ignore();
+			return false;
+		break;
+	}
+	return QMainWindow::event(event);
 }
 
 void Borderless::setWindow(GameInfo *info)
