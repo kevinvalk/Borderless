@@ -1,0 +1,26 @@
+﻿Build started 5-11-2012 23:33:31.
+     1>Project "C:\Users\ColdDoT\Scripting\Projects\Borderless\VC100\Borderless.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Borderless__Win32_Debug\Borderless.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Uic'ing ..\Ui\Main.ui...
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         Borderless.vcxproj -> C:\Users\ColdDoT\Scripting\Projects\Borderless\VC100\bin\VC100_Debug\Borderless.exe
+       PostBuildEvent:
+         IF NOT EXIST "bin\VC100_Debug\\QtCored4.dll" copy C:\Windows\Qt\Desktop\Qt\4.8.3\bin\QtCored4.dll bin\VC100_Debug\
+         IF NOT EXIST "bin\VC100_Debug\\QtGuid4.dll" copy C:\Windows\Qt\Desktop\Qt\4.8.3\bin\QtGuid4.dll bin\VC100_Debug\
+         :VCEnd
+       FinalizeBuildStatus:
+         Deleting file "Borderless__Win32_Debug\Borderless.unsuccessfulbuild".
+         Touching "Borderless__Win32_Debug\Borderless.lastbuildstate".
+     1>Done Building Project "C:\Users\ColdDoT\Scripting\Projects\Borderless\VC100\Borderless.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.11
