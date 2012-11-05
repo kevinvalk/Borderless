@@ -41,6 +41,7 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtTest;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtScriptTools;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtScript;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtNetwork;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtHelp;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtGui;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDesigner;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDeclarative;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDBus;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtCore;C:\Windows\Qt\Desktop\Qt\4.8.3\include\Qt;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Main.h" />
+    <ClInclude Include="typedef.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Borderless.qrc">

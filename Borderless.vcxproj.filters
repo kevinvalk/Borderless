@@ -66,5 +66,8 @@
     <ClInclude Include="GeneratedFiles\ui_Main.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="typedef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
