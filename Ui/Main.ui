@@ -6,19 +6,57 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>681</width>
     <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Borderless</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
-  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QListWidget" name="gameList"/>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Game Info</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Add game</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Delete game</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="Borderless.qrc"/>
+  <include location="../Resources/Borderless.qrc"/>
  </resources>
  <connections/>
 </ui>

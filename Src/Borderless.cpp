@@ -12,7 +12,8 @@ Borderless::Borderless(QWidget *parent, Qt::WFlags flags)
 	menu->addAction(tr("Close"), application, SLOT(quit()));
 
 	// Create system tray
-	tray = new QSystemTrayIcon(QIcon(":/Borderless/icon.png"));
+	tray = new QSystemTrayIcon(this);
+	tray->setIcon(QIcon(":/Borderless/icon.png"));
 	tray->setContextMenu(menu);
 	tray->show();
 	
@@ -21,20 +22,49 @@ Borderless::Borderless(QWidget *parent, Qt::WFlags flags)
 	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	timer->start(50);
 
-	// Setup the games
-	GameInfo *towerWars = new GameInfo();
-	towerWars->className = "TorqueJuggernaughtWindow";
-	towerWars->windowName = "Tower Wars";
-	towerWars->x = towerWars->y = 0;
-	towerWars->width = 1920;
-	towerWars->height = 1080;
+	// Open settings file
+	QFile file("settings.dat");
+	file.open(QIODevice::ReadOnly);
+	QDataStream in(&file);
 
-	games.push_back(towerWars);
+	// Read number of games
+	qint32 gameNo = 0;
+	in >> gameNo;
+
+	// Read all games
+	for(uint32 i = 0; i < gameNo; i++)
+	{
+		GameInfo *game = new GameInfo();
+		in >> game;
+		games.push_back(game);
+	}
+
+	// Close file
+	file.close();
+
+	refreshGames();
 }
 
 Borderless::~Borderless()
 {
+	tray->hide();
 
+	// Open settings
+	QFile file("settings.dat");
+	file.open(QIODevice::WriteOnly);
+	QDataStream out(&file);
+
+	// Set number of saved games
+	qint32 gameNo = games.size();
+	out << gameNo;
+
+	// Save all games
+	GameInfo *game;	
+	foreach(game, games)
+		out << game;
+
+	// Close file
+	file.close();
 }
 
 bool Borderless::event(QEvent *event)
@@ -61,6 +91,14 @@ bool Borderless::event(QEvent *event)
 		break;
 	}
 	return QMainWindow::event(event);
+}
+
+void Borderless::refreshGames()
+{
+	ui.gameList->clear();
+	GameInfo *game;
+	foreach(game, games)
+		ui.gameList->addItem(game);
 }
 
 void Borderless::setWindow(GameInfo *info)

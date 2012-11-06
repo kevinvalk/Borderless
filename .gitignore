@@ -12,6 +12,7 @@ Thumbs.db
 callgrind.out.*
 _ReSharper*
 *.idb
+*.dat
 
 # Visual studio
 *.webinfo

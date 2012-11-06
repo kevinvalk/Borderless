@@ -92,6 +92,7 @@ IF NOT EXIST "$(OutDir)\QtGui4.dll" copy $(QTDIR)\bin\QtGui4.dll $(OutDir)</Comm
   <ItemGroup>
     <ClCompile Include="..\Src\Borderless.cpp" />
     <ClCompile Include="..\Src\main.cpp" />
+    <ClCompile Include="..\Src\Serialize.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_Borderless.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
