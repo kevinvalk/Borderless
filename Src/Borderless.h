@@ -1,16 +1,15 @@
 #ifndef BORDERLESS_H
 #define BORDERLESS_H
 
-#include <QtGui/QMainWindow>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QSystemTrayIcon>
+#include <QtWidgets/QMenu>
 #include <QTimer>
 #include <QString>
 #include <QVector>
-#include <QMenu>
 #include <QFile>
 #include <QCloseEvent>
-#include <QSystemTrayIcon>
 #include <QDataStream>
-#include <QListWidget>
 #include <QList>
 #include "ui_Main.h"
 #include "typedef.h"
@@ -63,7 +62,7 @@ class Borderless : public QMainWindow
 	Q_OBJECT
 
 public:
-	Borderless(QWidget *parent = 0, Qt::WFlags flags = 0);
+	Borderless(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~Borderless();
 	void setWindow(GameInfo *info);
 

@@ -43,50 +43,63 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\bin\VC$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\bin\VC$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtTest;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtScriptTools;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtScript;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtNetwork;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtHelp;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtGui;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDesigner;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDeclarative;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtDBus;C:\Windows\Qt\Desktop\Qt\4.8.3\include\QtCore;C:\Windows\Qt\Desktop\Qt\4.8.3\include\Qt;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)__$(Platform)_$(Configuration)\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName)__$(Platform)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\GeneratedFiles;$(ProjectDir)\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(ProjectDir)\GeneratedFiles;$(ProjectDir)\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;QtCored4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>User32.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(OutDir)\QtCored4.dll" copy $(QTDIR)\bin\QtCored4.dll $(OutDir)
-IF NOT EXIST "$(OutDir)\QtGuid4.dll" copy $(QTDIR)\bin\QtGuid4.dll $(OutDir)</Command>
+      <Command>IF NOT EXIST "$(OutDir)\Qt5Cored.dll" copy $(QTDIR)\bin\Qt5Cored.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\Qt5Guid.dll" copy $(QTDIR)\bin\Qt5Guid.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\Qt5Widgetsd.dll" copy $(QTDIR)\bin\Qt5Widgetsd.dll $(OutDir)
+
+IF NOT EXIST "$(OutDir)\icuin49.dll" copy $(QTDIR)\bin\icuin49.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\icudt49.dll" copy $(QTDIR)\bin\icudt49.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\icuuc49.dll" copy $(QTDIR)\bin\icuuc49.dll $(OutDir)
+
+IF NOT EXIST "$(OutDir)\libEGLd.dll" copy $(QTDIR)\bin\libEGLd.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\libGLESv2d.dll" copy $(QTDIR)\bin\libGLESv2d.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\GeneratedFiles;$(ProjectDir)\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(ProjectDir)\GeneratedFiles;$(ProjectDir)\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;QtCore4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>User32.lib;qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>IF NOT EXIST "$(OutDir)\QtCore4.dll" copy $(QTDIR)\bin\QtCore4.dll $(OutDir)
-IF NOT EXIST "$(OutDir)\QtGui4.dll" copy $(QTDIR)\bin\QtGui4.dll $(OutDir)</Command>
+      <Command>IF NOT EXIST "$(OutDir)\Qt5Core.dll" copy $(QTDIR)\bin\Qt5Core.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\Qt5Gui.dll" copy $(QTDIR)\bin\Qt5Gui.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\Qt5Widgets.dll" copy $(QTDIR)\bin\Qt5Widgets.dll $(OutDir)
+
+IF NOT EXIST "$(OutDir)\icuin49.dll" copy $(QTDIR)\bin\icuin49.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\icudt49.dll" copy $(QTDIR)\bin\icudt49.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\icuuc49.dll" copy $(QTDIR)\bin\icuuc49.dll $(OutDir)
+
+IF NOT EXIST "$(OutDir)\libEGL.dll" copy $(QTDIR)\bin\libEGL.dll $(OutDir)
+IF NOT EXIST "$(OutDir)\libGLESv2.dll" copy $(QTDIR)\bin\libGLESv2.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -158,7 +171,7 @@ IF NOT EXIST "$(OutDir)\QtGui4.dll" copy $(QTDIR)\bin\QtGui4.dll $(OutDir)</Comm
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties UicDir=".\GeneratedFiles" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" RccDir=".\GeneratedFiles" lupdateOnBuild="0" lupdateOptions="" lreleaseOptions="" QtVersion_x0020_Win32="4.8.3" />
+      <UserProperties UicDir=".\GeneratedFiles" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" RccDir=".\GeneratedFiles" lupdateOnBuild="0" lupdateOptions="" lreleaseOptions="" QtVersion_x0020_Win32="4.8.3" Qt5Version_x0020_Win32="5.0.1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

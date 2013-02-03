@@ -1,5 +1,5 @@
 #include "Borderless.h"
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 
 QApplication *application;
 int main(int argc, char *argv[])

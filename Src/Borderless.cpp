@@ -1,7 +1,7 @@
 #include "Borderless.h"
 #include <Windows.h>
 
-Borderless::Borderless(QWidget *parent, Qt::WFlags flags)
+Borderless::Borderless(QWidget *parent, Qt::WindowFlags flags)
 	: QMainWindow(parent, flags)
 {
 	ui.setupUi(this);
